@@ -14,11 +14,11 @@ namespace ApiTest.Controllers
     {
         // GET: api/EletricityMeter
         [HttpGet]
-        public IActionResult Get(string meterNum, string value, string timeStamp)
+        public async Task<IActionResult> Get(string meterNum, string value, string timeStamp)
         {
            var csvString = string.Join(",", meterNum, value, timeStamp );
            System.IO.File.AppendText(csvString);
 		   return Ok(csvString);
-        }
+		}
     }
 }
